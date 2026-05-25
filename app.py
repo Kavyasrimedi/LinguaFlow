@@ -1,7 +1,10 @@
 from flask import Flask, render_template, request, jsonify
 from utils.translator import detect_language, translate_text
+from utils.database import init_db, save_translation, get_history
 
 app = Flask(__name__)
+
+init_db()
 
 @app.route("/")
 def index():
@@ -23,10 +26,16 @@ def translate():
     
     result = translate_text(text, dest_lang)
 
+    save_translation(text, result, src_lang, dest_lang)
+
     return jsonify({
     "translated": result,
     "src_lang": src_lang
 })
+
+@app.route("/api/history", methods=["GET"])
+def history():
+    return jsonify(get_history())
 
 
 
