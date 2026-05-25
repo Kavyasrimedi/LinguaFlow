@@ -1,0 +1,262 @@
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0f0f13;
+  --surface: #1a1a24;
+  --surface2: #22222f;
+  --border: #2e2e3f;
+  --accent: #7c6af7;
+  --accent-hover: #6c5ae0;
+  --text: #e8e8f0;
+  --text-muted: #7a7a9a;
+  --error: #e05c5c;
+  --success: #5ce07a;
+  --radius: 14px;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ── */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 2rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+}
+
+nav { display: flex; gap: 0.5rem; }
+
+.nav-btn {
+  background: none;
+  border: 1px solid transparent;
+  color: var(--text-muted);
+  padding: 0.4rem 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.nav-btn:hover { color: var(--text); border-color: var(--border); }
+.nav-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+/* ── Main ── */
+main {
+  flex: 1;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+
+/* ── Tabs ── */
+.tab { display: none; }
+.tab.active { display: block; }
+
+/* ── Translator Card ── */
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 1.2rem;
+}
+
+.panel {
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-top {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.panel-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.lang-label { font-size: 0.85rem; color: var(--text-muted); flex: 1; }
+.lang-label strong { color: var(--accent); }
+
+textarea {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-size: 1rem;
+  font-family: inherit;
+  padding: 1rem;
+  resize: none;
+  min-height: 220px;
+  line-height: 1.6;
+}
+
+textarea::placeholder { color: var(--text-muted); }
+
+.output-box {
+  flex: 1;
+  padding: 1rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+  min-height: 220px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ── Language Select ── */
+.lang-select, select {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.35rem 0.7rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  flex: 1;
+  outline: none;
+}
+
+/* ── Icon Buttons ── */
+.icon-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.icon-btn:hover { color: var(--text); border-color: var(--accent); background: var(--surface2); }
+
+/* ── Translate Button ── */
+.translate-btn {
+  display: block;
+  width: 100%;
+  padding: 0.85rem;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  letter-spacing: 0.01em;
+}
+
+.translate-btn:hover { background: var(--accent-hover); }
+.translate-btn:active { transform: scale(0.99); }
+.translate-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ── Error Box ── */
+.error-box {
+  margin-top: 1rem;
+  background: rgba(224, 92, 92, 0.12);
+  border: 1px solid var(--error);
+  color: var(--error);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+/* ── History ── */
+#tab-history h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.history-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.history-langs {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.history-texts {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  font-size: 0.95rem;
+}
+
+.history-input { color: var(--text-muted); }
+.history-arrow { color: var(--border); }
+.history-output { color: var(--text); font-weight: 500; }
+
+.history-time {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.empty { color: var(--text-muted); font-size: 0.9rem; padding: 1rem 0; }
+
+/* ── Footer ── */
+footer {
+  text-align: center;
+  padding: 1.2rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+/* ── Status message ── */
+#statusMsg { color: var(--success); font-size: 0.8rem; }
+
+/* ── Responsive ── */
+@media (max-width: 650px) {
+  .card { grid-template-columns: 1fr; }
+  header { padding: 1rem; }
+  main { padding: 1.5rem 1rem; }
+}
