@@ -1,3 +1,0 @@
-1. backend 
-2. database
-3. frontend
