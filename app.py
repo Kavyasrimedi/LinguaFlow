@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, jsonify
 from utils.translator import detect_language, translate_text
 from utils.database import init_db, save_translation, get_history
+from utils.detector import detect_language
+
 
 app = Flask(__name__)
 
