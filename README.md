@@ -64,7 +64,7 @@ translator/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/linguaflow.git
+git clone https://github.com/Kavyasrimedi/linguaflow.git
 cd linguaflow
 ```
 
@@ -151,4 +151,4 @@ Open your browser and go to: `http://127.0.0.1:5000`
 
 ## Author
 
-Your Name — [GitHub](https://github.com/yourusername) · [LinkedIn](https://linkedin.com/in/yourprofile)
+Your Name — [GitHub](https://github.com/Kavyasrimedi) · [LinkedIn](https://www.linkedin.com/in/kavya-sri-medi-58a878320/)
