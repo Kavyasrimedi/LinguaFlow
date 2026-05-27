@@ -19,10 +19,9 @@ LANG_NAMES = {
 }
 
 def detect_language(text: str) -> str:
-    """
-    Detect the language of the given text.
-    Returns the language code (e.g. 'en') or 'unknown'.
-    """
+    # Too short to detect reliably
+    if len(text.strip()) < 10:
+        return "en"
     try:
         return detect(text)
     except LangDetectException:

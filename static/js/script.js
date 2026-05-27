@@ -84,16 +84,49 @@ document.getElementById("copyBtn").addEventListener("click", () => {
 });
 
 // ── Text to Speech ─────────────────────────────────────
-document.getElementById("ttsBtn").addEventListener("click", () => {
+const ttsBtn = document.getElementById("ttsBtn");
+let isSpeaking = false;
+
+ttsBtn.addEventListener("click", () => {
   const text = document.getElementById("outputText").textContent;
-  const lang = document.getElementById("destLang").value;
   if (!text || text === "Translation will appear here…") return;
 
+  // If already speaking, stop it
+  if (isSpeaking) {
+    window.speechSynthesis.cancel();
+    isSpeaking = false;
+    ttsBtn.textContent = "🔊";
+    return;
+  }
+
+  const lang = document.getElementById("destLang").value;
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = lang;
-  window.speechSynthesis.speak(utterance);
-});
 
+  utterance.onend = () => {
+    isSpeaking = false;
+    ttsBtn.textContent = "🔊";
+  };
+
+  utterance.onerror = () => {
+    isSpeaking = false;
+    ttsBtn.textContent = "🔊";
+  };
+
+  // Warn if no voice available for this language
+const availableVoices = window.speechSynthesis.getVoices();
+const hasVoice = availableVoices.some(v => v.lang.startsWith(lang.split("-")[0]));
+
+if (!hasVoice) {
+  document.getElementById("statusMsg").textContent = "⚠️ No voice available for this language on your device.";
+  setTimeout(() => document.getElementById("statusMsg").textContent = "", 3000);
+  return;
+}
+
+  window.speechSynthesis.speak(utterance);
+  isSpeaking = true;
+  ttsBtn.textContent = "⏹️";
+});
 // ── Speech to Text ─────────────────────────────────────
 const micBtn = document.getElementById("micBtn");
 let recognizing = false;
