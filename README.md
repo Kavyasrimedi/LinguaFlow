@@ -145,10 +145,15 @@ Open your browser and go to: `http://127.0.0.1:5000`
 
 ## Screenshots
 
-> Add screenshots here after deployment.
+<img width="1915" height="708" alt="Screenshot 2026-05-27 211426" src="https://github.com/user-attachments/assets/03860344-1552-4c7e-adbf-9519720c7a8a" />
+
+<img width="1899" height="648" alt="Screenshot 2026-05-27 211723" src="https://github.com/user-attachments/assets/67c82c13-9449-442a-8018-ecf2f37ddb29" />
+
+<img width="1798" height="864" alt="Screenshot 2026-05-27 211748" src="https://github.com/user-attachments/assets/ab9eff74-fb10-4d52-9626-04f1e4e60ea0" />
+
 
 ---
 
 ## Author
 
-Your Name — [GitHub](https://github.com/Kavyasrimedi) · [LinkedIn](https://www.linkedin.com/in/kavya-sri-medi-58a878320/)
+Your Name — [GitHub](https://github.com/Kavyasrimedi) · [LinkedIn](https://www.linkedin.com/in/kavya-sri-medi/)
