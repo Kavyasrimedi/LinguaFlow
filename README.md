@@ -6,6 +6,14 @@ Built with Flask, Python, and Vanilla JavaScript.
 
 ---
 
+## Live Demo
+
+Find the deployed web app through the link below
+
+[LinguaFlow](https://linguaflow-1.onrender.com/)
+
+---
+
 ## Features
 
 - **Text Translation** — Translate between 100+ languages instantly
